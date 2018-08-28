@@ -15,26 +15,28 @@ namespace RomanNumerals
             { 'M', 1000 }
         };
 
-
         public int Convert(string input)
         {
-            var output = 0;
+            var total = 0;
 
             for (int i = 0; i < input.Length; i++)
             {
-                var current = numerals[input[i]];
+                var current = GetValue(i);
+                var next = 0;
 
                 if (i < input.Length - 1)
-                {
-                    var next = numerals[input[i + 1]];
-                    if (current < next)
-                        current = -current;
-                }
+                    next = GetValue(i + 1);
 
-                output += current;
+                if (current < next)
+                    current = -current;
+
+                total += current;
             }
 
-            return output;
+            return total;
+
+            int GetValue(int position) =>
+                numerals[input[position]];
         }
     }
 }
