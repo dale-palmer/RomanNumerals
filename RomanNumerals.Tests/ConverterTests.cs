@@ -32,5 +32,19 @@ namespace RomanNumerals.Tests
             // Assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestCase("xxvi", 26)]
+        [TestCase("mm", 2000)]
+        public void Converter_Convert_WithLowerCaseCaseNumerals_ReturnsCorrectValue(string input, int expected)
+        {
+            // Assemble
+            var sut = new Converter();
+
+            // Act
+            var actual = sut.Convert(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

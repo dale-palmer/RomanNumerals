@@ -37,7 +37,7 @@ namespace RomanNumerals
                 if (position >= input.Length)
                     return 0;
 
-                return numerals[input[position]];
+                return numerals[input.ToUpper()[position]];
             }
         }
     }
