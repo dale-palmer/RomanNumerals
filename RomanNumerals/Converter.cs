@@ -22,7 +22,16 @@ namespace RomanNumerals
 
             for (int i = 0; i < input.Length; i++)
             {
-                output += numerals[input[i]];
+                var current = numerals[input[i]];
+
+                if (i < input.Length - 1)
+                {
+                    var next = numerals[input[i + 1]];
+                    if (current < next)
+                        current = -current;
+                }
+
+                output += current;
             }
 
             return output;

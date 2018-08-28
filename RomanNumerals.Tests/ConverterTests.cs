@@ -17,5 +17,20 @@ namespace RomanNumerals.Tests
             // Assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestCase("IV", 4)]
+        [TestCase("IX", 9)]
+        [TestCase("MCM", 1900)]
+        public void Converter_Convert_WithComplexNumerals_ReturnsCorrectValue(string input, int expected)
+        {
+            // Assemble
+            var sut = new Converter();
+
+            // Act
+            var actual = sut.Convert(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
