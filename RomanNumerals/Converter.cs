@@ -21,11 +21,8 @@ namespace RomanNumerals
 
             for (int i = 0; i < input.Length; i++)
             {
-                var current = GetValue(i);
-                var next = 0;
-
-                if (i < input.Length - 1)
-                    next = GetValue(i + 1);
+                var current = GetCharValue(i);
+                var next = GetCharValue(i + 1);
 
                 if (current < next)
                     current = -current;
@@ -35,8 +32,13 @@ namespace RomanNumerals
 
             return total;
 
-            int GetValue(int position) =>
-                numerals[input[position]];
+            int GetCharValue(int position)
+            {
+                if (position >= input.Length)
+                    return 0;
+
+                return numerals[input[position]];
+            }
         }
     }
 }
